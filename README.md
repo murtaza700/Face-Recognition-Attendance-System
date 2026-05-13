@@ -192,7 +192,7 @@ cd face-recognition-attendance
 ```bash
 # Windows
 python -m venv venv
-venv\Scripts\activate
+venv\Scripts\Activate
 
 # Linux/Mac
 python3 -m venv venv
@@ -581,7 +581,4 @@ For Students:
 <div align="center">
 ⭐ Star this Repository if you found it helpful! ⭐
 Made with ❤️ for the Open Source Community
-
-http://ForTheBadge.com/images/badges/built-with-love.svg
-
 </div>
