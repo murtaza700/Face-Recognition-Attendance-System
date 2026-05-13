@@ -184,8 +184,8 @@ Windows/Linux/MacOS
 
 1. Clone or Download the Project
 ```bash
-git clone https://github.com/yourusername/face-recognition-attendance.git
-cd face-recognition-attendance
+git clone https://github.com/murtaza700/Face-Recognition-Attendance-System.git
+cd Face Recognition Attendance System
 ```
 
 2. Create Virtual Environment (Recommended)
