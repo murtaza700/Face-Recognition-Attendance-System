@@ -1,10 +1,10 @@
 ==================================================
 FACE RECOGNITION MODEL TRAINING
 ==================================================
-Date: 2026-05-13 22:35:00
+Date: 2026-05-14 21:34:38
 
-[22:35:00] Preparing dataset...
-Found 4 users: ABC, GHULAM MURTAZA, Ghulam Mujtaba, Ghulam Nabi
+[21:34:38] Preparing dataset...
+Found 5 users: ABC, GHULAM MURTAZA, Ghulam Mujtaba, Ghulam Nabi, adasd
 
   Processing: ABC
     20 images processed
@@ -14,15 +14,17 @@ Found 4 users: ABC, GHULAM MURTAZA, Ghulam Mujtaba, Ghulam Nabi
     20 images processed
   Processing: Ghulam Nabi
     20 images processed
+  Processing: adasd
+    4 images processed
 
-Total images: 80
+Total images: 84
 
-Training model with 80 images...
-Users to train: 4
+Training model with 84 images...
+Users to train: 5
 Training completed successfully!
-Users trained: 4
-Users: ABC, GHULAM MURTAZA, Ghulam Mujtaba, Ghulam Nabi
-Model reloaded: Model loaded with 4 users
+Users trained: 5
+Users: ABC, GHULAM MURTAZA, Ghulam Mujtaba, Ghulam Nabi, adasd
+Model reloaded: Model loaded with 5 users
 
 ==================================================
 Model file: E:\Face Detection 3\data\trainer.yml

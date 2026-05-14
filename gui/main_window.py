@@ -71,14 +71,14 @@ class MainWindow:
         """Setup main window UI"""
         # Main container
         self.main_frame = ctk.CTkFrame(self.root, fg_color=GUI_BG_DARK)
-        self.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
+        self.main_frame.pack(fill="both", expand=True, padx=0, pady=0)
         
         # Header
         self.create_header()
         
         # Status bar
         self.status_badge = StatusBadge(self.main_frame)
-        self.status_badge.pack(pady=10)
+        self.status_badge.pack(pady=0)
         
         # Content area
         content_frame = ctk.CTkFrame(self.main_frame, fg_color="transparent")
