@@ -26,7 +26,7 @@ HAAR_SCALE_FACTOR = 1.3
 HAAR_MIN_NEIGHBORS = 5
 
 # ============ FACE RECOGNITION ============
-CONFIDENCE_THRESHOLD = 70  # Lower = more strict
+CONFIDENCE_THRESHOLD = 60  # Lower = more strict
 REGISTRATION_IMAGES_COUNT = 20
 
 # ============ SOUND SETTINGS ============
