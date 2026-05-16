@@ -71,7 +71,7 @@ class MainWindow:
         """Setup main window UI"""
         # Main container
         self.main_frame = ctk.CTkFrame(self.root, fg_color=GUI_BG_DARK)
-        self.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
+        self.main_frame.pack(fill="both", expand=True, padx=0, pady=0)
         
         # Header
         self.create_header()
