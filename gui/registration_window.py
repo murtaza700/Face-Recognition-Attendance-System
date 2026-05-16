@@ -51,7 +51,7 @@ class RegistrationWindow:
         
         # Main container
         self.container = ctk.CTkFrame(self.window, fg_color=GUI_BG_DARK)
-        self.container.pack(fill="both", expand=True, padx=20, pady=20)
+        self.container.pack(fill="both", expand=True, padx=0, pady=0)
         
         # Title
         ctk.CTkLabel(
