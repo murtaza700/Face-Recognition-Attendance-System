@@ -71,14 +71,14 @@ class MainWindow:
         """Setup main window UI"""
         # Main container
         self.main_frame = ctk.CTkFrame(self.root, fg_color=GUI_BG_DARK)
-        self.main_frame.pack(fill="both", expand=True, padx=0, pady=0)
+        self.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
         
         # Header
         self.create_header()
         
         # Status bar
         self.status_badge = StatusBadge(self.main_frame)
-        self.status_badge.pack(pady=0)
+        self.status_badge.pack(pady=10)
         
         # Content area
         content_frame = ctk.CTkFrame(self.main_frame, fg_color="transparent")
@@ -87,7 +87,7 @@ class MainWindow:
         # Left panel - Controls
         self.create_left_panel(content_frame)
         
-        # Right panel - Information
+        # Right panel - Information (Scrollable)
         self.create_right_panel(content_frame)
     
     def create_header(self):
@@ -172,10 +172,12 @@ class MainWindow:
         ).pack(pady=15, padx=30, fill="x")
     
     def create_right_panel(self, parent):
-        """Create right panel with information"""
+        """Create right panel with scrollable information"""
+        # Right panel container
         right_panel = ctk.CTkFrame(parent, fg_color=GUI_BG_MEDIUM)
         right_panel.pack(side="right", fill="both", expand=True, padx=(10,0))
         
+        # Title
         ctk.CTkLabel(
             right_panel,
             text="SYSTEM INFORMATION",
@@ -183,9 +185,19 @@ class MainWindow:
             text_color=GUI_ACCENT_BLUE
         ).pack(pady=(30,20))
         
+        # Scrollable frame for all info cards
+        scroll_frame = ctk.CTkScrollableFrame(
+            right_panel,
+            fg_color="transparent",
+            scrollbar_fg_color=GUI_BG_LIGHT,
+            scrollbar_button_color=GUI_ACCENT_BLUE,
+            scrollbar_button_hover_color=GUI_ACCENT_GREEN
+        )
+        scroll_frame.pack(fill="both", expand=True, padx=10, pady=(0,10))
+        
         # Clock
         self.clock_label = ctk.CTkLabel(
-            right_panel,
+            scroll_frame,
             text="",
             font=ctk.CTkFont(size=24, weight="bold"),
             text_color="#ffffff"
@@ -194,8 +206,8 @@ class MainWindow:
         self.update_clock()
         
         # Date card
-        date_card = InfoCard(right_panel)
-        date_card.pack(fill="x", padx=20, pady=10)
+        date_card = InfoCard(scroll_frame)
+        date_card.pack(fill="x", padx=10, pady=10)
         self.date_label = date_card.add_label(
             f"📅 {format_date_display()}",
             color=GUI_ACCENT_BLUE,
@@ -203,15 +215,15 @@ class MainWindow:
         )
         
         # Stats card
-        stats_card = InfoCard(right_panel, "SYSTEM STATS")
-        stats_card.pack(fill="x", padx=20, pady=10)
+        stats_card = InfoCard(scroll_frame, "SYSTEM STATS")
+        stats_card.pack(fill="x", padx=10, pady=10)
         
         self.users_label = stats_card.add_label("Registered Users: 0")
         self.att_count_label = stats_card.add_label("Today's Attendance: 0")
         
         # Model status card
-        model_card = InfoCard(right_panel, "MODEL STATUS")
-        model_card.pack(fill="x", padx=20, pady=10)
+        model_card = InfoCard(scroll_frame, "MODEL STATUS")
+        model_card.pack(fill="x", padx=10, pady=10)
         
         model_status = "✓ Trained & Ready" if self.model_loaded else "✗ Not Trained"
         model_color = GUI_ACCENT_GREEN if self.model_loaded else GUI_ACCENT_RED
@@ -232,11 +244,18 @@ class MainWindow:
         )
         
         # Quick tips card
-        tips_card = InfoCard(right_panel, "⚡ QUICK TIPS")
-        tips_card.pack(fill="x", padx=20, pady=10)
+        tips_card = InfoCard(scroll_frame, "⚡ QUICK TIPS")
+        tips_card.pack(fill="x", padx=10, pady=10)
         
         tips_text = "• Ctrl+R: Register User\n• Ctrl+A: Mark Attendance\n• Ctrl+T: Train Model"
         tips_card.add_label(tips_text, color="#a0a0a0", font_size=12)
+        
+        # App info card
+        app_card = InfoCard(scroll_frame, "ℹ️ ABOUT")
+        app_card.pack(fill="x", padx=10, pady=10)
+        
+        about_text = "Face Recognition Attendance System\nVersion: 1.0.0\nPython + OpenCV + CustomTkinter"
+        app_card.add_label(about_text, color="#a0a0a0", font_size=12)
         
         # Update stats
         self.update_stats()
